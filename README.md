@@ -3,11 +3,11 @@
 
 ## 비동기
 - `IEnumerator`/`yield return new WaitForSeconds(1f);`
-           - 코루틴은 자동으로 멈춰
-           - 값을 돌려받을 수없음
-           - 오브젝트가 꺼지거나 파괴되면 자동으로 멈춤
+  - 코루틴은 자동으로 멈춰
+  - 값을 돌려받을 수없음
+  - 오브젝트가 꺼지거나 파괴되면 자동으로 멈춤
 - ### Awaitable: 유니티 6 기본 내장 =>
-           - 자동 멈춤이 안되서 `destroyCancellationToken`를 써야함
+  - 자동 멈춤이 안되서 `destroyCancellationToken`를 써야함
 - ### UniTask: 외부 라이브러리 = 메모리 거의 안 씀
 
 
