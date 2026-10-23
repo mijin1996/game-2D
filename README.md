@@ -2,7 +2,7 @@
 - `(Task.Delay(3000).Wait()) → 15초`
 
 ## 비동기
-- `IEnumerator`-`yield return new WaitForSeconds(1f);`
+- `IEnumerator`/`yield return new WaitForSeconds(1f);`
            - 코루틴은 자동으로 멈춰
            - 값을 돌려받을 수없음
            - 오브젝트가 꺼지거나 파괴되면 자동으로 멈춤
