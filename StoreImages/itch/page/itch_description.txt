@@ -1,0 +1,55 @@
+================ 영어 (itch.io 본문용) ================
+
+RUN, JUMP, AND THROW CARROTS!
+
+A bunny-hooded runner dashes through a spring meadow full of coins and grumpy snails.
+How far can you go?
+
+HOW TO PLAY
+• Jump: Space (PC) / Tap the screen (Mobile)
+  - Press again in the air for multi-jumps (up to 5)
+  - Release early for a short hop
+• Throw a carrot: A key or the ATTACK button
+• Collect coins to raise your score
+• Every 5 coins = LEVEL UP!
+• Hit a snail with a carrot to clear the way — but touch one and it's GAME OVER
+
+FEATURES
+• Hand-drawn pixel art characters
+• Quick pick-up-and-play runs
+• Juicy effects: score pulse, level-up blink, floating "+N" coins
+• Plays in your browser — PC and mobile
+
+Made with Unity.
+
+
+================ 한국어 (itch.io 본문용) ================
+
+달리고, 뛰고, 당근을 던져라!
+
+토끼 모자를 쓴 주인공이 코인과 심술궂은 달팽이로 가득한 봄 들판을 달립니다.
+얼마나 멀리 갈 수 있을까요?
+
+조작 방법
+• 점프: 스페이스바 (PC) / 화면 터치 (모바일)
+  - 공중에서 한 번 더 누르면 연속 점프 (최대 5번)
+  - 빨리 떼면 낮게 점프
+• 당근 던지기: A 키 또는 화면의 ATTACK 버튼
+• 코인을 모아 점수를 올리세요
+• 코인 5개마다 레벨 업!
+• 당근으로 달팽이를 물리치세요 — 부딪히면 게임 오버
+
+특징
+• 직접 그린 픽셀아트 캐릭터
+• 짧고 가볍게 즐기는 러닝 게임
+• 점수 펄스, 레벨업 깜빡임, "+N" 코인 효과
+• 브라우저에서 바로 플레이 (PC, 모바일)
+
+Unity로 제작했습니다.
+
+
+================ 크레딧 (사용한 에셋에 맞게 확인 후 추가) ================
+Font: Kenney Mini Square by Kenney (www.kenney.nl) – CC0
+Effects: Cartoon FX Remaster by Jean Moreno (JMO)
+Floating text: Floating Text Engine Lite by BlackMass Software
+Music / SFX: (사용한 음원 출처를 적어 주세요)

@@ -1,0 +1,25 @@
+itch.io 게임 페이지 → 상단 [Edit theme] 에서 아래처럼 설정
+
+[Banner]
+  banner_960x300.png 업로드, 가운데 정렬
+
+[Background]
+  background_tile_240.png 업로드
+  Repeat: 반복 (Repeat) / 위치: 위쪽 가운데
+
+[Colors]  (게임 버튼·하늘·당근 색에서 뽑은 값)
+  BG  (페이지 바깥 배경색)  : #C4ECF4   하늘 민트 (배경 무늬와 같은 색)
+  BG2 (가운데 칸 배경색)    : #FFF8E6   크림색
+  Text (본문 글자)          : #3B2A1A   진한 갈색
+  Link (링크)               : #E07A1F   당근 주황
+  Button (버튼)             : #F5B829   버튼 노랑
+
+[Fonts]
+  제목: 굵은 글꼴 / 본문: 기본 글꼴 (가독성 우선)
+
+[Edit game 에서]
+  Cover image      : cover_630x500.png
+  Screenshots      : StoreImages\itch 의 Screenshot_1 ~ 5 (이미 있음)
+  Description      : itch_description.txt 내용 붙여넣기
+  Embed options    : 게임 해상도에 맞게 크기 지정, Fullscreen 버튼 켜기,
+                     Mobile friendly 켜기 (가로 방향)
