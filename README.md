@@ -19,3 +19,6 @@
 
 - WhenAny: 끝나는 대로 하나씩 처리
 - WhenAll: 전부 끝나면 한 번에 처리
+
+
+//명령어 git pull origin master --allow-unrelated-histories --no-edit
