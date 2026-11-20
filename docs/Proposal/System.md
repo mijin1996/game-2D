@@ -1,6 +1,6 @@
 # 시스템 — 러너 · 발판 · 성장 · 광고
 
-> 문서 세트: [목차](Proposal.md) · [컨셉](Concept.md) · **시스템** · [전투·개체](Combat_Entity.md) · [레벨 디자인](LevelDesign.md) · [밸런스](Balance.md) · [Suggestions](Suggestions.md)
+> 문서 세트: [목차](Proposal.md) · [컨셉](Concept.md) · **시스템** · [전투·개체](Combat_Entity.md) · [레벨 디자인](LevelDesign.md) · [밸런스](Balance.md) · [needFix](needFix.md)
 > 관련 코드: `Player.cs` · `PlayerInput.cs` · `PlatformSpawner.cs` · `Platform.cs` · `Coin.cs` · `GM.cs` · `LM.cs` · `SM.cs` · `SCM.cs` · `AM.cs`
 
 ---
@@ -451,21 +451,21 @@ flowchart TB
   classDef bad fill:#A33A33,color:#fff,stroke:#A33A33
   classDef todo fill:#6B7280,color:#fff,stroke:#6B7280
 ```
-> 읽는 법: 주황 = 이런 상황이면? → 초록 ✅ 코드가 이미 처리함 / 빨강 ⚠️ 문제 (괄호 = Suggestions 번호) / 회색 💡 고치면 좋은 점. 아래 표에 같은 번호로 자세히 있어요.
+> 읽는 법: 주황 = 이런 상황이면? → 초록 ✅ 코드가 이미 처리함 / 빨강 ⚠️ 문제 (괄호 = needFix 번호) / 회색 💡 고치면 좋은 점. 아래 표에 같은 번호로 자세히 있어요.
 
 | # | 상황 | 현재 동작 | 상태 |
 |---|---|---|---|
-| 1 | 광고 | `AM`은 Intro 씬에만 있고, 광고 함수를 부르는 곳이 없음 | ⚠️ → [S-01](Suggestions.md) |
+| 1 | 광고 | `AM`은 Intro 씬에만 있고, 광고 함수를 부르는 곳이 없음 | ⚠️ → [S-01](needFix.md) |
 | 2 | 전면 광고 로드 실패 | 경고 로그만, 게임은 진행 | ✅ |
-| 3 | 최고 점수 | "BEST Score"에 이번 판 점수를 표시, 저장 안 함 | ⚠️ → [S-02](Suggestions.md) |
+| 3 | 최고 점수 | "BEST Score"에 이번 판 점수를 표시, 저장 안 함 | ⚠️ → [S-02](needFix.md) |
 | 4 | 같은 코인 두 번 충돌 | `stepped`로 1번만 | ✅ |
 | 5 | 재사용된 발판의 코인 | 생성 때 자식 코인 전부 다시 켬 | ✅ |
 | 6 | 풀 크기 3 | 같은 종류 4번째 사용은 빨라야 8번째 생성 (밸런스 §4) | ✅ |
-| 7 | 공격 연타 | 쿨다운 없음 | ⚠️ → [S-03](Suggestions.md) |
+| 7 | 공격 연타 | 쿨다운 없음 | ⚠️ → [S-03](needFix.md) |
 | 8 | 옆면에 부딪힘 | 법선 y ≤ 0.7이면 착지로 안 봄 | ✅ |
-| 9 | 발판에서 떨어질 때 | 점프 횟수 그대로 → 떨어지면서도 점프 가능 | → [S-06](Suggestions.md) |
-| 10 | 씬 이동 버튼 연타 | 막는 장치 없음 | ⚠️ → [S-04](Suggestions.md) |
-| 11 | 떠오르는 숫자 카운터 | `static`이라 판이 바뀌어도 계속 증가 | ⚠️ → [S-05](Suggestions.md) |
+| 9 | 발판에서 떨어질 때 | 점프 횟수 그대로 → 떨어지면서도 점프 가능 | → [S-06](needFix.md) |
+| 10 | 씬 이동 버튼 연타 | 막는 장치 없음 | ⚠️ → [S-04](needFix.md) |
+| 11 | 떠오르는 숫자 카운터 | `static`이라 판이 바뀌어도 계속 증가 | ⚠️ → [S-05](needFix.md) |
 | 12 | 사운드 매니저 없음 | `SM.ins`가 자동으로 만들어 줌 | ✅ |
 | 13 | 화면 회전 | 가로 고정 (`LandscapeMode`) | ✅ |
 

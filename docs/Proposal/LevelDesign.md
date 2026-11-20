@@ -1,6 +1,6 @@
 # 레벨 디자인 — Main 씬
 
-> 문서 세트: [목차](Proposal.md) · [컨셉](Concept.md) · [시스템](System.md) · [전투·개체](Combat_Entity.md) · **레벨 디자인** · [밸런스](Balance.md) · [Suggestions](Suggestions.md)
+> 문서 세트: [목차](Proposal.md) · [컨셉](Concept.md) · [시스템](System.md) · [전투·개체](Combat_Entity.md) · **레벨 디자인** · [밸런스](Balance.md) · [needFix](needFix.md)
 > 데이터: [`Balance/platform.json`](Balance/platform.json)
 
 ---
@@ -113,4 +113,4 @@ pie title bag 구성 (현재)
 |---|---|---|---|
 | 모든 레벨 | 5개마다 +1 | 10 | 1 : 1 |
 
-> 레벨에 따라 어려워지는 곡선은 [S-07](Suggestions.md)
+> 레벨에 따라 어려워지는 곡선은 [S-07](needFix.md)

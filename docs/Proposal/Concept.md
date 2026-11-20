@@ -1,6 +1,6 @@
 # 게임 컨셉 — BunnyRunning
 
-> 문서 세트: [목차](Proposal.md) · **컨셉** · [시스템](System.md) · [전투·개체](Combat_Entity.md) · [레벨 디자인](LevelDesign.md) · [밸런스](Balance.md) · [Suggestions](Suggestions.md)
+> 문서 세트: [목차](Proposal.md) · **컨셉** · [시스템](System.md) · [전투·개체](Combat_Entity.md) · [레벨 디자인](LevelDesign.md) · [밸런스](Balance.md) · [needFix](needFix.md)
 
 ---
 
@@ -146,10 +146,10 @@ flowchart TD
 | 배너 | `AM.ShowBanner()` / `HideBanner()` | 하단 (`AITBannerPosition.Bottom`) |
 | 전면 | `AM.OnGameOver()` | 사망 3번마다, 로드 완료된 경우만 |
 
-> 이 함수들을 부르는 곳이 아직 없어요 → [S-01](Suggestions.md)
+> 이 함수들을 부르는 곳이 아직 없어요 → [S-01](needFix.md)
 
 ## 개발 현황
 | 구분 | 내용 |
 |---|---|
 | 구현됨 | 점프(높이 조절 · 5회) · 당근 공격 · 달팽이 · 코인 · 레벨업 · 발판 풀링 · bag 배치 · 무한 배경 · 씬별 BGM · 게임 가이드 · 가로 화면 고정 · 광고 함수 |
-| 다음 할 일 | [Suggestions](Suggestions.md) |
+| 다음 할 일 | [needFix](needFix.md) |

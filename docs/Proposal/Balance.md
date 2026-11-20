@@ -1,6 +1,6 @@
 # 밸런스 · 데이터
 
-> 문서 세트: [목차](Proposal.md) · [컨셉](Concept.md) · [시스템](System.md) · [전투·개체](Combat_Entity.md) · [레벨 디자인](LevelDesign.md) · **밸런스** · [Suggestions](Suggestions.md)
+> 문서 세트: [목차](Proposal.md) · [컨셉](Concept.md) · [시스템](System.md) · [전투·개체](Combat_Entity.md) · [레벨 디자인](LevelDesign.md) · **밸런스** · [needFix](needFix.md)
 > 데이터 파일 (JSON · Unity `JsonUtility`로 바로 읽는 구조): [`player.json`](Balance/player.json) · [`entity.json`](Balance/entity.json) · [`platform.json`](Balance/platform.json)
 > 값은 `Main` 씬 · 프리팹 · 프로젝트 설정에 저장된 실제 값 기준
 
