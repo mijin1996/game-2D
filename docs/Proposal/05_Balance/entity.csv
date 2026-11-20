@@ -1,0 +1,5 @@
+﻿ID,Name,Speed,HP,Damage,Lifetime(s),Score,Note,Status
+PRJ_CARROT,당근,12,-,1,5,-,쿨다운 없음,현재
+ENM_SNAIL,달팽이,1,1,닿으면 즉사,-,0,발판 너비의 절반 범위 왕복,현재
+ENM_SNAIL,달팽이,1,1,닿으면 즉사,-,3,처치 점수 추가,💡 제안
+ITM_COIN,코인,-,-,-,-,1,레벨 게이지 +1,현재

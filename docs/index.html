@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BunnyRunning 시뮬레이션</title>
+<style>
+  :root { --bg:#f4f7ec; --panel:#ffffff; --line:#dfe6cf; --text:#26301c; --muted:#6f7a60; --accent:#4f9a3a; --danger:#d84a4a; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font:14px/1.5 system-ui, "Malgun Gothic", sans-serif; }
+  header { padding:14px 16px; border-bottom:1px solid var(--line); background:#fff; }
+  header h1 { margin:0; font-size:18px; } header p { margin:2px 0 0; color:var(--muted); font-size:13px; }
+  main { display:grid; grid-template-columns:minmax(0,1fr) 300px; gap:16px; padding:16px; max-width:1240px; margin:0 auto; }
+  canvas { width:100%; height:auto; border:1px solid var(--line); border-radius:10px; display:block; touch-action:none; }
+  aside { background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:14px; }
+  aside h2 { font-size:14px; margin:14px 0 6px; color:var(--accent); } aside h2:first-child { margin-top:0; }
+  table { width:100%; border-collapse:collapse; font-size:12px; } td { padding:3px 0; border-bottom:1px solid var(--line); } td:last-child { text-align:right; }
+  label { display:block; margin:6px 0; font-size:13px; }
+  button { background:var(--accent); color:#fff; border:0; border-radius:6px; padding:8px 12px; font-weight:700; cursor:pointer; width:100%; margin-top:10px; }
+  .hint { color:var(--muted); font-size:12px; }
+  .bag { font-family:monospace; font-size:16px; letter-spacing:2px; }
+  @media (max-width:860px) { main { grid-template-columns:1fr; } }
+
+  .howto { max-width:1240px; margin:16px auto 0; padding:12px 16px; border:2px solid currentColor; border-radius:10px; display:grid; grid-template-columns:auto 1fr; gap:4px 14px; align-items:center; }
+  .howto h2 { grid-column:1 / -1; margin:0 0 4px; font-size:16px; }
+  .howto .goal, .howto .tip { grid-column:1 / -1; margin:0; font-size:13px; opacity:.85; }
+  .howto .tip { margin-top:4px; }
+  .howto .key { font-weight:700; white-space:nowrap; }
+  kbd { display:inline-block; min-width:22px; padding:1px 6px; border:1px solid currentColor; border-bottom-width:3px; border-radius:5px; font:700 12px/1.4 monospace; text-align:center; }
+  @media (max-width:860px) { .howto { margin:12px 16px 0; grid-template-columns:1fr; } .howto .key { white-space:normal; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>🐰 BunnyRunning 시뮬레이션</h1>
+  <p>점프: Space / 화면 왼쪽 터치 (최대 5단, 빨리 떼면 낮게) · 당근 던지기: A / 화면 오른쪽 터치 · 수치는 `Player`, `PlatformSpawner`, `LM`, `CarrotProjectile` 기준</p>
+</header>
+<section class="howto" aria-label="조작 방법">
+  <h2>🎮 조작 방법</h2>
+  <p class="goal">발판을 건너뛰며 코인을 모으세요. 떨어지거나 달팽이에 닿으면 끝!</p>
+  <div class="key"><kbd>Space</kbd> / 화면 왼쪽 터치</div><div>점프 (공중에서 최대 5번까지 연속 점프, 짧게 누르면 낮게)</div>
+  <div class="key"><kbd>A</kbd> / 화면 오른쪽 터치</div><div>당근 던지기 (달팽이 처치)</div>
+  <p class="tip">💡 코인 5개마다 레벨업해요. 키가 안 먹으면 게임 화면을 한 번 클릭하세요.</p>
+</section>
+<main>
+  <canvas id="cv" width="900" height="460"></canvas>
+  <aside>
+    <h2>이번 판</h2>
+    <table>
+      <tr><td>점수 (코인)</td><td id="sScore">0</td></tr>
+      <tr><td>레벨 (코인 5개마다)</td><td id="sLevel">1</td></tr>
+      <tr><td>최고 점수</td><td id="sBest">0</td></tr>
+      <tr><td>물리친 달팽이</td><td id="sKill">0</td></tr>
+      <tr><td>죽은 횟수 / 전면 광고</td><td id="sDeath">0 / 0</td></tr>
+    </table>
+    <h2>발판 배치 방식 비교</h2>
+    <label><input type="radio" name="mode" value="bag" checked> bag 방식 (코드 그대로: 달팽이 1 + 코인 1 섞기)</label>
+    <label><input type="radio" name="mode" value="random"> 완전 랜덤 (50%)</label>
+    <table>
+      <tr><td>생성된 발판</td><td id="sPlat">0</td></tr>
+      <tr><td>같은 종류 최대 연속</td><td id="sStreak">0</td></tr>
+      <tr><td>최근 배치 (🐌 / 🪙)</td><td class="bag" id="sHist"></td></tr>
+    </table>
+    <h2>제안 기능</h2>
+    <label><input id="cSpeed" type="checkbox"> 레벨마다 스크롤 속도 +8%</label>
+    <button id="btn">다시 시작</button>
+    <p class="hint">bag 방식은 같은 종류가 최대 2번까지만 이어져요. 완전 랜덤으로 바꾸면 달팽이가 길게 몰리는 판이 생기는 걸 확인할 수 있어요.</p>
+  </aside>
+</main>
+<script>
+(() => {
+  'use strict';
+  // 시작 대기: 조작법을 읽기 전에 게임이 흘러가지 않게, 클릭이나 키를 누를 때까지 멈춘다
+  let started = false;
+  const startGame = () => { if (started) return; started = true; last = performance.now(); };
+  addEventListener('keydown', startGame, true);
+  document.getElementById('cv').addEventListener('pointerdown', startGame, true);
+  function drawStartGate() {
+    const c = document.getElementById('cv'), x = c.getContext('2d');
+    x.save(); x.fillStyle = 'rgba(0,0,0,.6)'; x.fillRect(0, 0, c.width, c.height);
+    x.fillStyle = '#fff'; x.textAlign = 'center'; x.textBaseline = 'middle';
+    x.font = 'bold 30px sans-serif'; x.fillText('클릭하거나 아무 키나 눌러 시작', c.width / 2, c.height / 2 - 14);
+    x.font = '16px sans-serif'; x.fillText('조작 방법은 화면 위 안내를 보세요', c.width / 2, c.height / 2 + 22); x.restore();
+  }
+
+  const UNIT = 46;                     // 1 유닛 = 46px
+  const SCROLL_SPEED = 10;             // ScrollingObject.speed
+  const JUMP_VELOCITY = 14;            // jumpForce 700 을 한 프레임 힘으로 준 속도
+  const GRAVITY = 20;
+  const SHORT_HOP = 0.5;               // 빨리 떼면 속도 절반
+  const MAX_JUMP = 5;               // Player.cs: jumpCnt < 5
+  const SPAWN_MIN = 1.25, SPAWN_MAX = 2.25; // timeBetSpawnMin/Max
+  const Y_MIN = -3.5, Y_MAX = 1.5;      // yMin/yMax
+  const COINS_FOR_LEVEL = 5;           // LM.coinsForLevelUp
+  const CARROT_SPEED = 12, CARROT_LIFE = 5;
+  const SNAIL_SPEED = 1;
+  const AD_EVERY = 3;                  // AM.showEveryDeaths
+  const PLAT_W = 8.4, PLAT_H = 0.5;   // 발판 콜라이더 너비 8.41
+  const cv = document.getElementById('cv');
+  const ctx = cv.getContext('2d');
+  const VW = cv.width / UNIT, VH = cv.height / UNIT;
+  const $ = (id) => document.getElementById(id);
+  const toPx = (x, y) => [x * UNIT, (VH / 2 - y) * UNIT];   // y 위가 + (Unity 좌표)
+
+  let s, bag = [], deaths = 0, best = 0;
+  try { best = parseInt(localStorage.getItem('bunny-best'), 10) || 0; } catch (e) { best = 0; }
+
+  function rand(a, b) { return a + Math.random() * (b - a); }
+
+  // 섞인 주머니에서 하나 꺼내기 (true = 달팽이)
+  function nextIsSnail() {
+    if (document.querySelector('input[name=mode]:checked').value === 'random') return Math.random() < 0.5;
+    if (bag.length === 0) {
+      bag = [true, false];
+      for (let i = bag.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [bag[i], bag[j]] = [bag[j], bag[i]]; }
+    }
+    return bag.shift();
+  }
+
+  function reset() {
+    bag = [];
+    s = {
+      p: { x: 3, y: -1.5, vy: 0, jumps: 0, grounded: true, dead: false },
+      plats: [{ x: -1, y: -2.5, w: 24, item: null }], carrots: [], fx: [],
+      score: 0, coins: 0, level: 1, kills: 0, spawnT: 0.3, plat: 0, streak: 0, maxStreak: 0, lastKind: null, hist: [], flash: 0, over: false,
+    };
+  }
+
+  function speed() { return SCROLL_SPEED * ($('cSpeed').checked ? Math.pow(1.08, s.level - 1) : 1); }
+
+  function spawnPlatform() {
+    const snail = nextIsSnail();
+    const y = rand(Y_MIN, Y_MAX);
+    const p = { x: VW + 1, y, w: PLAT_W, item: snail ? { kind: 'snail', dx: PLAT_W / 2, dir: 1, alive: true } : { kind: 'coin', dx: PLAT_W / 2, alive: true } };
+    s.plats.push(p);
+    s.plat++;
+    const kind = snail ? '🐌' : '🪙';
+    s.streak = kind === s.lastKind ? s.streak + 1 : 1;
+    s.lastKind = kind;
+    s.maxStreak = Math.max(s.maxStreak, s.streak);
+    s.hist.push(kind); if (s.hist.length > 10) s.hist.shift();
+  }
+
+  function jumpPress() {
+    if (s.over) { reset(); return; }
+    if (s.p.jumps < MAX_JUMP) { s.p.vy = JUMP_VELOCITY; s.p.jumps++; s.p.grounded = false; }
+  }
+  function jumpRelease() { if (s.p.vy > 0) s.p.vy *= SHORT_HOP; }
+  function attack() {
+    if (s.over) return;
+    s.carrots.push({ x: s.p.x + 0.5, y: s.p.y + 0.3, life: CARROT_LIFE });
+  }
+
+  function die() {
+    if (s.p.dead) return;
+    s.p.dead = true; s.over = true; deaths++;
+    if (s.score > best) { best = s.score; try { localStorage.setItem('bunny-best', String(best)); } catch (e) { /* 무시 */ } }
+  }
+
+  function update(dt) {
+    if (s.over) return;
+    const v = speed();
+    s.spawnT -= dt;
+    if (s.spawnT <= 0) { spawnPlatform(); s.spawnT = rand(SPAWN_MIN, SPAWN_MAX) * SCROLL_SPEED / v; }
+    s.plats.forEach((p) => {
+      p.x -= v * dt;
+      const it = p.item;
+      if (it && it.kind === 'snail' && it.alive) {
+        it.dx += it.dir * SNAIL_SPEED * dt;
+        if (it.dx > p.w - 0.4 || it.dx < 0.4) it.dir *= -1;
+      }
+    });
+    s.plats = s.plats.filter((p) => p.x + p.w > -2);
+
+    // 플레이어 물리: 위에서 떨어질 때만 발판에 착지 (normal.y > 0.7 과 같은 뜻)
+    const prevY = s.p.y;
+    s.p.vy -= GRAVITY * dt;
+    s.p.y += s.p.vy * dt;
+    s.p.grounded = false;
+    for (const p of s.plats) {
+      const top = p.y + PLAT_H / 2;
+      if (s.p.x + 0.3 > p.x && s.p.x - 0.3 < p.x + p.w && s.p.vy <= 0 && prevY - 0.45 >= top - 0.05 && s.p.y - 0.45 <= top) {
+        s.p.y = top + 0.45; s.p.vy = 0; s.p.jumps = 0; s.p.grounded = true;
+      }
+    }
+    if (s.p.y < -VH / 2 - 1) die();   // 낙사
+
+    // 아이템 · 적
+    for (const p of s.plats) {
+      const it = p.item;
+      if (!it || !it.alive) continue;
+      const ix = p.x + it.dx, iy = p.y + PLAT_H / 2 + 0.35;
+      if (Math.hypot(ix - s.p.x, iy - s.p.y) < 0.7) {
+        if (it.kind === 'coin') {
+          it.alive = false; s.score++; s.coins++;
+          s.fx.push({ x: ix, y: iy, t: 0.7, text: '+1' });
+          if (s.coins % COINS_FOR_LEVEL === 0) { s.level++; s.flash = 0.8; s.fx.push({ x: s.p.x, y: s.p.y + 1, t: 1, text: 'LEVEL UP!' }); }
+        } else { die(); }
+      }
+    }
+
+    // 당근
+    for (const c of s.carrots) {
+      c.x += CARROT_SPEED * dt; c.life -= dt;
+      for (const p of s.plats) {
+        const it = p.item;
+        if (!it || !it.alive || it.kind !== 'snail') continue;
+        if (Math.hypot(p.x + it.dx - c.x, p.y + 0.6 - c.y) < 0.6) { it.alive = false; c.life = 0; s.kills++; s.fx.push({ x: c.x, y: c.y, t: 0.5, text: 'HIT' }); }
+      }
+    }
+    s.carrots = s.carrots.filter((c) => c.life > 0 && c.x < VW + 2);
+    s.fx.forEach((f) => { f.t -= dt; }); s.fx = s.fx.filter((f) => f.t > 0);
+    s.flash = Math.max(0, s.flash - dt);
+  }
+
+  function draw() {
+    const g = ctx.createLinearGradient(0, 0, 0, cv.height);
+    g.addColorStop(0, '#bfe6ff'); g.addColorStop(1, '#eaf7d9');
+    ctx.fillStyle = g; ctx.fillRect(0, 0, cv.width, cv.height);
+    ctx.fillStyle = '#cfe9b0';
+    for (let i = 0; i < 4; i++) { const x = ((i * 300 - (performance.now() / 20) % 300) + 1200) % 1200 - 150; ctx.beginPath(); ctx.ellipse(x, cv.height, 180, 70, 0, Math.PI, 0); ctx.fill(); }
+
+    for (const p of s.plats) {
+      const [x, y] = toPx(p.x, p.y + PLAT_H / 2);
+      ctx.fillStyle = '#8a5a35'; ctx.fillRect(x, y, p.w * UNIT, PLAT_H * UNIT);
+      ctx.fillStyle = '#6cc04a'; ctx.fillRect(x, y, p.w * UNIT, 7);
+      const it = p.item;
+      if (it && it.alive) {
+        const [ix, iy] = toPx(p.x + it.dx, p.y + PLAT_H / 2 + 0.35);
+        ctx.font = '26px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+        ctx.save(); if (it.kind === 'snail' && it.dir < 0) { ctx.translate(ix, iy); ctx.scale(-1, 1); ctx.fillText('🐌', 0, 0); } else ctx.fillText(it.kind === 'snail' ? '🐌' : '🪙', ix, iy); ctx.restore();
+      }
+    }
+    for (const c of s.carrots) { const [x, y] = toPx(c.x, c.y); ctx.font = '20px sans-serif'; ctx.fillText('🥕', x, y); }
+    const [px, py] = toPx(s.p.x, s.p.y);
+    ctx.font = '34px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.fillText(s.p.dead ? '😵' : '🐰', px, py);
+
+    for (const f of s.fx) { const [x, y] = toPx(f.x, f.y + (1 - f.t)); ctx.fillStyle = `rgba(79,154,58,${Math.min(1, f.t * 2)})`; ctx.font = 'bold 18px sans-serif'; ctx.fillText(f.text, x, y); }
+    if (s.flash > 0) { ctx.fillStyle = `rgba(255,230,120,${s.flash * 0.4})`; ctx.fillRect(0, 0, cv.width, cv.height); }
+
+    ctx.textAlign = 'left'; ctx.fillStyle = '#26301c'; ctx.font = 'bold 20px sans-serif';
+    ctx.fillText(`Score ${s.score}   Lv.${s.level}`, 16, 28);
+    ctx.fillStyle = '#ffffffaa'; ctx.fillRect(16, 42, 150, 10);
+    ctx.fillStyle = '#f2b822'; ctx.fillRect(16, 42, 150 * ((s.coins % COINS_FOR_LEVEL) / COINS_FOR_LEVEL), 10);
+
+    if (s.over) {
+      ctx.fillStyle = 'rgba(38,48,28,.6)'; ctx.fillRect(0, 0, cv.width, cv.height);
+      ctx.textAlign = 'center'; ctx.fillStyle = '#fff'; ctx.font = 'bold 38px sans-serif';
+      ctx.fillText('GAME OVER', cv.width / 2, cv.height / 2 - 24);
+      ctx.font = '18px sans-serif';
+      ctx.fillText(`점수 ${s.score} · 최고 ${best}`, cv.width / 2, cv.height / 2 + 12);
+      if (deaths % AD_EVERY === 0) { ctx.fillStyle = '#ffd86b'; ctx.fillText(`📺 전면 광고 노출 (${AD_EVERY}번 죽을 때마다)`, cv.width / 2, cv.height / 2 + 42); }
+      ctx.fillStyle = '#e3ead6'; ctx.fillText('Space / 터치로 재시작', cv.width / 2, cv.height / 2 + 72);
+    }
+    $('sScore').textContent = s.score; $('sLevel').textContent = s.level; $('sBest').textContent = best;
+    $('sKill').textContent = s.kills; $('sDeath').textContent = `${deaths} / ${Math.floor(deaths / AD_EVERY)}`;
+    $('sPlat').textContent = s.plat; $('sStreak').textContent = s.maxStreak; $('sHist').textContent = s.hist.join('');
+  }
+
+  let last = performance.now();
+  function loop(now) { const dt = Math.min(0.033, (now - last) / 1000); last = now; if (started) update(dt); draw(); if (!started) drawStartGate(); requestAnimationFrame(loop); }
+
+  addEventListener('keydown', (e) => {
+    if (e.repeat) return;
+    if (e.code === 'Space') { e.preventDefault(); jumpPress(); }
+    if (e.code === 'KeyA') attack();
+  });
+  addEventListener('keyup', (e) => { if (e.code === 'Space') jumpRelease(); });
+  cv.addEventListener('pointerdown', (e) => {
+    const r = cv.getBoundingClientRect();
+    if (e.clientX - r.left > r.width * 0.6 && !s.over) attack(); else jumpPress();
+  });
+  cv.addEventListener('pointerup', jumpRelease);
+  $('btn').addEventListener('click', reset);
+  document.querySelectorAll('input[name=mode]').forEach((r) => r.addEventListener('change', reset));
+  reset();
+  requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>
