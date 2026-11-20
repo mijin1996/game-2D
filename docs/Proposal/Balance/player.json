@@ -1,0 +1,20 @@
+{
+  "player": {
+    "id": "PLY_001",
+    "name": "토끼 러너",
+    "jumpForce": 600,
+    "fixedTimestep": 0.02,
+    "mass": 1,
+    "gravity": 20,
+    "maxJumps": 5,
+    "shortHopMultiplier": 0.5,
+    "scrollSpeed": 10
+  },
+  "derived": {
+    "jumpVelocity": 12,
+    "airTimeOneJumpSec": 1.2,
+    "heightOneJump": 3.6,
+    "horizontalReachOneJump": 12
+  },
+  "source": "Main.unity UniRun_Run_0 (1)"
+}

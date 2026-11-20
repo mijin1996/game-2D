@@ -1,0 +1,39 @@
+{
+  "entities": [
+    {
+      "id": "PRJ_CARROT",
+      "name": "당근",
+      "type": "projectile",
+      "speed": 12,
+      "hp": null,
+      "damage": 1,
+      "lifetimeSec": 5,
+      "score": null,
+      "note": "쿨다운 없음"
+    },
+    {
+      "id": "ENM_SNAIL",
+      "name": "달팽이",
+      "type": "enemy",
+      "speed": 1,
+      "hp": 1,
+      "damage": null,
+      "killsOnContact": true,
+      "lifetimeSec": null,
+      "score": 0,
+      "note": "스프라이트 너비 절반 범위 왕복"
+    },
+    {
+      "id": "ITM_COIN",
+      "name": "코인",
+      "type": "item",
+      "speed": null,
+      "hp": null,
+      "damage": null,
+      "lifetimeSec": null,
+      "score": 1,
+      "levelGauge": 1,
+      "note": "레벨 게이지 +1"
+    }
+  ]
+}

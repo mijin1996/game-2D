@@ -1,0 +1,42 @@
+{
+  "spawn": {
+    "poolPerType": 3,
+    "spawnX": 20,
+    "spawnIntervalMin": 1.25,
+    "spawnIntervalMax": 1.35,
+    "spawnYMin": -3.5,
+    "spawnYMax": 1,
+    "snailPerBag": 1,
+    "coinPerBag": 1
+  },
+  "platform": {
+    "colliderWidth": 8.41,
+    "coinsPerCoinPlatform": 5,
+    "scrollSpeed": 10
+  },
+  "progression": {
+    "coinsForLevelUp": 5,
+    "interstitialEveryDeaths": 3
+  },
+  "derived": {
+    "startDistanceMin": 12.5,
+    "startDistanceMax": 13.5,
+    "gapMin": 4.09,
+    "gapMax": 5.09
+  },
+  "source": {
+    "poolPerType": "Main.unity PlatformSpawner.count",
+    "spawnX": "PlatformSpawner.xPos",
+    "spawnIntervalMin": "Main.unity",
+    "spawnIntervalMax": "Main.unity (code default 2.25)",
+    "spawnYMin": "Main.unity",
+    "spawnYMax": "Main.unity (code default 1.5)",
+    "snailPerBag": "Main.unity",
+    "coinPerBag": "Main.unity",
+    "colliderWidth": "CoinPlatform.prefab BoxCollider2D",
+    "coinsPerCoinPlatform": "CoinPlatform.prefab",
+    "scrollSpeed": "ScrollingObject (prefab, scene)",
+    "coinsForLevelUp": "Main.unity LM",
+    "interstitialEveryDeaths": "Intro.unity AM"
+  }
+}
