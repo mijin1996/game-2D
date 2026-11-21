@@ -1,26 +1,26 @@
-# BM · 경제 — BunnyRunning
+# Business Model — BunnyRunning
 
-> 문서 세트: [목차](Proposal.md) · 기획: [컨셉](Concept.md) · [시스템](System.md) · [전투·개체](Combat_Entity.md) · [레벨 디자인](LevelDesign.md) · [밸런스](Balance.md) · 사업·운영: [사업 검토](Business.md) · [요구사항·로드맵](Requirements.md) · **BM·경제** · [서버·데이터](Server_Data.md) · [리소스](Resources.md) · [로그·지표](Analytics.md) · [QA·출시](QA_Release.md) · [라이브 운영](LiveOps.md) · [사업화·법무](Business_Legal.md) · [needFix](needFix.md)
+> 문서 세트: [목차](Proposal.md) · 기획: [컨셉](Concept.md) · [시스템](System.md) · [전투·개체](Combat_Entity.md) · [레벨 디자인](LevelDesign.md) · [밸런스](Balance.md) · 사업·운영: [사업 검토](Business.md) · [요구사항·로드맵](Requirements.md) · **Business Model** · [서버·데이터](Server_Data.md) · [리소스](Resources.md) · [로그·지표](Analytics.md) · [QA·출시](QA_Release.md) · [라이브 운영](LiveOps.md) · [사업화·법무](Business_Legal.md) · [needFix](needFix.md)
 
-> **문서 정보** · ID `D07-BM` · v1.0 · 상태 `Draft` · Owner ME (기획 · 개발) · 최종 수정 2026-11-21 · 관련 `D06-BAL`, `D08-SERVER`
+> **문서 정보** · 문서 번호 `D07-BM` · 버전 v1.0 · 상태 `Draft` · 담당 기획자 · 대표 · 최종 수정 2026-11-21 · 관련 문서 [밸런스](Balance.md) · [서버·데이터](Server_Data.md)
 
 **변경 이력**
 
 | 버전 | 날짜 | 변경 내용 | 사유 | 결정자 | 영향 범위 |
 |---|---|---|---|---|---|
-| v1.0 | 2026-11-21 | 최초 작성 | 사내 문서 기준 v3 적용 | ME | 문서만 |
+| v1.0 | 2026-11-21 | 최초 작성 | — | 기획자 | — |
 
 ---
 
 ## 1. 이 문서의 역할
 **어떻게 돈을 벌고, 코인이 어떻게 도는지** 정하는 문서예요.
-> 지금 구현: 토스 광고 매니저 `AM`이 있지만 **부르는 곳이 없어** 광고가 나오지 않아요 (needFix S-01). 코인은 점수 · 레벨업에만 쓰여요.
+> 지금 구현: 토스 광고 매니저 `AM`이 있지만 **부르는 곳이 없어** 광고가 나오지 않아요 (needFix [S-01](needFix.md)). 코인은 점수 · 레벨업에만 쓰여요.
 
 ## 2. BM 구조
 | 항목 | 결정 | 이유 |
 |---|---|---|
 | 주 수익원 | **광고** (전면 · 배너 · 보상형) | 30 ~ 45초 판 · 잦은 재시작 = 광고 지면이 많음, 타깃이 광고형 무료 게임 이용자 |
-| 인앱결제 | 1차 출시엔 없음 | 1인 개발 · 서버 없음. 스킨 상점(S-11)은 보류 |
+| 인앱결제 | 1차 출시엔 없음 | 1인 개발 · 서버 없음. 스킨 상점([S-11](needFix.md))은 보류 |
 | 넣지 않는 것 | 가챠 · 랜덤 박스 | 확률 공개 의무 · 운영 부담 |
 
 ## 3. 재화 순환 — 코인
@@ -48,7 +48,7 @@ flowchart LR
   classDef script fill:#3AA6C8,color:#fff,stroke:#3AA6C8
   classDef data fill:#A33A33,color:#fff,stroke:#A33A33
 ```
-> 읽는 법: 왼쪽 = 코인이 생기는 곳, 가운데 = 쌓이는 곳, 오른쪽 = 쓰는 곳이에요. 지금 코인은 판이 끝나면 남지 않아요. 남는 재화로 만들지는 [F-05](needFix.md#8-사내-문서-기준-v3-적용-후-정할-것)에서 정해요.
+> 읽는 법: 왼쪽 = 코인이 생기는 곳, 가운데 = 쌓이는 곳, 오른쪽 = 쓰는 곳이에요. 지금 코인은 판이 끝나면 남지 않아요. 남는 재화로 만들지는 [F-05](needFix.md#8-정할-것)에서 정해요.
 
 ## 4. 광고 지면
 | 지면 ID | 종류 | 위치 | 규칙 | 지금 |
@@ -80,7 +80,7 @@ gantt
 | 개발 (지금) | `ait-ad-test-banner-id` | `ait-ad-test-interstitial-id` | `ait-ad-test-rewarded-id` (주석) |
 | 출시 | 앱인토스 콘솔에서 발급 | 발급 | 발급 |
 
-> 출시 빌드에 테스트 ID가 남지 않게, ID는 씬 값이 아니라 **빌드 설정(개발 / 출시)**으로 나눠요 (REQ_111).
+> 출시 빌드에 테스트 ID가 남지 않게, ID는 씬 값이 아니라 **빌드 설정(개발 / 출시)**으로 나눠요 ([REQ_111](Requirements.md)).
 
 ## 6. 매출 시뮬레이션 (가정)
 ```
