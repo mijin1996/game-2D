@@ -54,5 +54,5 @@
 ---
 
 ## 📁 문서
-- [`docs/Proposal/Proposal.md`](docs/Proposal/Proposal.md) — 기획서 (컨셉 ~ 사업화 · 법무) · [needFix](docs/Proposal/needFix.md)
+- [`docs/Proposal/Index.md`](docs/Proposal/Index.md) — 기획서 (컨셉 ~ 사업화 · 법무) · [needFix](docs/Proposal/needFix.md)
 - [`docs/MeMemo.md`](docs/MeMemo.md) — 동기/비동기(코루틴·Awaitable·UniTask) 정리 메모
