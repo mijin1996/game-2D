@@ -1,8 +1,8 @@
 # 서버 · 데이터 연동 — BunnyRunning
 
-> 문서 세트: [목차](Proposal.md) · 기획: [컨셉](Concept.md) · [시스템](System.md) · [전투·개체](Combat_Entity.md) · [레벨 디자인](LevelDesign.md) · [밸런스](Balance.md) · 사업·운영: [사업 검토](Business.md) · [요구사항·로드맵](Requirements.md) · [Business Model](Monetization.md) · **서버·데이터** · [리소스](Resources.md) · [로그·지표](Analytics.md) · [QA·출시](QA_Release.md) · [라이브 운영](LiveOps.md) · [사업화·법무](Business_Legal.md) · [needFix](needFix.md)
+> 문서 세트: [목차](../Proposal.md) · 기획: [컨셉](../기획/Concept.md) · [시스템](../기획/System.md) · [전투·개체](../기획/Combat_Entity.md) · [레벨 디자인](../기획/LevelDesign.md) · [밸런스](../기획/Balance.md) · 사업·운영: [사업 검토](../대표/Business.md) · [요구사항·로드맵](../기획/Requirements.md) · [Business Model](../기획/Monetization.md) · **서버·데이터** · [리소스](../디자인/Resources.md) · [로그·지표](../기획/Analytics.md) · [QA·출시](../QA/QA_Release.md) · [라이브 운영](../운영/LiveOps.md) · [사업화·법무](../대표/Business_Legal.md) · [needFix](../needFix.md)
 
-> **문서 정보** · 문서 번호 `D08-SERVER` · 버전 v1.0 · 상태 `Draft` · 담당 서버 개발자 · 최종 수정 2026-11-21 · 관련 문서 [시스템](System.md) · [Business Model](Monetization.md)
+> **문서 정보** · 문서 번호 `D08-SERVER` · 버전 v1.0 · 상태 `Draft` · 담당 서버 개발자 · 최종 수정 2026-11-21 · 관련 문서 [시스템](../기획/System.md) · [Business Model](../기획/Monetization.md)
 
 **변경 이력**
 
@@ -16,7 +16,7 @@
 **어떤 데이터를 어디에 저장하고, 무엇을 서버가 판정할지** 정하는 문서예요.
 
 ## 2. 지금 저장하는 것 (코드 기준)
-**아무것도 저장하지 않아요.** 서버도, `PlayerPrefs`도 쓰지 않아요. 최고 점수가 없는 이유예요 (needFix [S-02](needFix.md)).
+**아무것도 저장하지 않아요.** 서버도, `PlayerPrefs`도 쓰지 않아요. 최고 점수가 없는 이유예요 (needFix [S-02](../needFix.md)).
 
 ## 3. 저장 위치 · 판정 주체 (제안)
 | 데이터 | 저장 위치 | 판정 주체 | 이유 |
@@ -34,7 +34,7 @@
 | 지워지는 경우 | 토스 앱 캐시 삭제 · 재설치 시 사라질 수 있음 → 최고 점수가 사라져도 되는지 결정 |
 | 저장 시점 | 판이 끝날 때 `PlayerPrefs.Save()`를 바로 부르기 (WebGL은 자동 저장 시점이 늦을 수 있음) |
 
-> 기기를 바꿔도 기록을 남기려면 토스 로그인 · 앱인토스 저장 기능이나 서버가 필요해요 → [F-04](needFix.md#8-정할-것)
+> 기기를 바꿔도 기록을 남기려면 토스 로그인 · 앱인토스 저장 기능이나 서버가 필요해요 → [F-04](../needFix.md#8-정할-것)
 
 ## 4. 외부 연동
 | 연동 | 용도 | 실패 시 처리 |
@@ -49,6 +49,6 @@
 |---|---|---|
 | `com.srcnalt.openai-unity` | 에디터에서 AI 호출 | 제거 또는 에디터 전용 확인 — 빌드에 API 키가 들어가지 않게 |
 | `com.coplaydev.coplay` · `com.coplaydev.unity-mcp` | 에디터 자동화 | 에디터 전용 확인 |
-| `com.unity.analytics` 3.8.2 | 쓰지 않음 | 정리 ([로그](Analytics.md)) |
+| `com.unity.analytics` 3.8.2 | 쓰지 않음 | 정리 ([로그](../기획/Analytics.md)) |
 
-> 2026-11-21 확인: `Assets` 안 스크립트 · 에셋에서 API 키 형태의 문자열은 찾지 못했어요. 출시 전 빌드 결과물로 한 번 더 확인해요 → [F-06](needFix.md#8-정할-것)
+> 2026-11-21 확인: `Assets` 안 스크립트 · 에셋에서 API 키 형태의 문자열은 찾지 못했어요. 출시 전 빌드 결과물로 한 번 더 확인해요 → [F-06](../needFix.md#8-정할-것)

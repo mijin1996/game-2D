@@ -1,8 +1,8 @@
 # 게임 컨셉 — BunnyRunning
 
-> 문서 세트: [목차](Proposal.md) · 기획: **컨셉** · [시스템](System.md) · [전투·개체](Combat_Entity.md) · [레벨 디자인](LevelDesign.md) · [밸런스](Balance.md) · 사업·운영: [사업 검토](Business.md) · [요구사항·로드맵](Requirements.md) · [Business Model](Monetization.md) · [서버·데이터](Server_Data.md) · [리소스](Resources.md) · [로그·지표](Analytics.md) · [QA·출시](QA_Release.md) · [라이브 운영](LiveOps.md) · [사업화·법무](Business_Legal.md) · [needFix](needFix.md)
+> 문서 세트: [목차](../Proposal.md) · 기획: **컨셉** · [시스템](System.md) · [전투·개체](Combat_Entity.md) · [레벨 디자인](LevelDesign.md) · [밸런스](Balance.md) · 사업·운영: [사업 검토](../대표/Business.md) · [요구사항·로드맵](Requirements.md) · [Business Model](Monetization.md) · [서버·데이터](../개발/Server_Data.md) · [리소스](../디자인/Resources.md) · [로그·지표](Analytics.md) · [QA·출시](../QA/QA_Release.md) · [라이브 운영](../운영/LiveOps.md) · [사업화·법무](../대표/Business_Legal.md) · [needFix](../needFix.md)
 
-> **문서 정보** · 문서 번호 `D01-CONCEPT` · 버전 v1.0 · 상태 `Review` · 담당 기획자 · 최종 수정 2026-11-21 · 관련 문서 [사업 검토](Business.md) · [요구사항·로드맵](Requirements.md)
+> **문서 정보** · 문서 번호 `D01-CONCEPT` · 버전 v1.0 · 상태 `Review` · 담당 기획자 · 최종 수정 2026-11-21 · 관련 문서 [사업 검토](../대표/Business.md) · [요구사항·로드맵](Requirements.md)
 
 **변경 이력**
 
@@ -153,10 +153,10 @@ flowchart TD
 | 배너 | `AM.ShowBanner()` / `HideBanner()` | 하단 (`AITBannerPosition.Bottom`) |
 | 전면 | `AM.OnGameOver()` | 사망 3번마다, 로드 완료된 경우만 |
 
-> 이 함수들을 부르는 곳이 아직 없어요 → [S-01](needFix.md)
+> 이 함수들을 부르는 곳이 아직 없어요 → [S-01](../needFix.md)
 
 ## 개발 현황
 | 구분 | 내용 |
 |---|---|
 | 구현됨 | 점프(높이 조절 · 5회) · 당근 공격 · 달팽이 · 코인 · 레벨업 · 발판 풀링 · bag 배치 · 무한 배경 · 씬별 BGM · 게임 가이드 · 가로 화면 고정 · 광고 함수 |
-| 다음 할 일 | [needFix](needFix.md) |
+| 다음 할 일 | [needFix](../needFix.md) |

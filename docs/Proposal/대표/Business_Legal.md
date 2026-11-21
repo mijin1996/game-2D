@@ -1,8 +1,8 @@
 # 사업화 · 법무 체크리스트 — BunnyRunning
 
-> 문서 세트: [목차](Proposal.md) · 기획: [컨셉](Concept.md) · [시스템](System.md) · [전투·개체](Combat_Entity.md) · [레벨 디자인](LevelDesign.md) · [밸런스](Balance.md) · 사업·운영: [사업 검토](Business.md) · [요구사항·로드맵](Requirements.md) · [Business Model](Monetization.md) · [서버·데이터](Server_Data.md) · [리소스](Resources.md) · [로그·지표](Analytics.md) · [QA·출시](QA_Release.md) · [라이브 운영](LiveOps.md) · **사업화·법무** · [needFix](needFix.md)
+> 문서 세트: [목차](../Proposal.md) · 기획: [컨셉](../기획/Concept.md) · [시스템](../기획/System.md) · [전투·개체](../기획/Combat_Entity.md) · [레벨 디자인](../기획/LevelDesign.md) · [밸런스](../기획/Balance.md) · 사업·운영: [사업 검토](Business.md) · [요구사항·로드맵](../기획/Requirements.md) · [Business Model](../기획/Monetization.md) · [서버·데이터](../개발/Server_Data.md) · [리소스](../디자인/Resources.md) · [로그·지표](../기획/Analytics.md) · [QA·출시](../QA/QA_Release.md) · [라이브 운영](../운영/LiveOps.md) · **사업화·법무** · [needFix](../needFix.md)
 
-> **문서 정보** · 문서 번호 `D13-LEGAL` · 버전 v1.0 · 상태 `Draft` · 담당 대표 · 최종 수정 2026-11-21 · 관련 문서 [리소스](Resources.md) · [QA·출시](QA_Release.md)
+> **문서 정보** · 문서 번호 `D13-LEGAL` · 버전 v1.0 · 상태 `Draft` · 담당 대표 · 최종 수정 2026-11-21 · 관련 문서 [리소스](../디자인/Resources.md) · [QA·출시](../QA/QA_Release.md)
 
 **변경 이력**
 
@@ -31,11 +31,11 @@
 | | 아동 대상 여부 | 귀여운 캐릭터 → 아동이 많이 할 수 있음. 광고 정책 · 표기 확인 | 대기 | |
 | 지식재산 | 상표 | "BunnyRunning" 같은 이름 검색 · 출원 검토 | 대기 | |
 | | **유니티짱 라이선스 (UCL 2.0)** | 상업 이용 조건 · **라이선스 표기 의무** (로고 · 문구 · 위치) — 동봉 PDF 원문 확인 | ⚠️ 대기 | |
-| | 기타 리소스 | [리소스](Resources.md) 전부 확인 | ⚠️ 대기 | |
+| | 기타 리소스 | [리소스](../디자인/Resources.md) 전부 확인 | ⚠️ 대기 | |
 | | 오픈소스 고지 | 앱인토스 SDK · 폰트 라이선스 고지 화면 | 대기 | |
 | 서비스 종료 | 종료 절차 | 공지 기간 (유료 상품이 없으면 간단) | 대기 | |
 
 ## 3. 이 게임에서 먼저 볼 것
-1. **앱인토스 입점 자격** — 사업자가 필요하면 사업자 등록이 출시보다 먼저예요 → [F-12](needFix.md#8-정할-것)
-2. **UCL 2.0 표기** — 러너 캐릭터가 유니티짱 계열이면 표기 없이 출시할 수 없어요 → [F-03](needFix.md)
+1. **앱인토스 입점 자격** — 사업자가 필요하면 사업자 등록이 출시보다 먼저예요 → [F-12](../needFix.md#8-정할-것)
+2. **UCL 2.0 표기** — 러너 캐릭터가 유니티짱 계열이면 표기 없이 출시할 수 없어요 → [F-03](../needFix.md)
 3. **음원 출처** — 파일 이름만 있고 라이선스 원문이 없어요.

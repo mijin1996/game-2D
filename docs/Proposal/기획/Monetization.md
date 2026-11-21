@@ -1,8 +1,8 @@
 # Business Model — BunnyRunning
 
-> 문서 세트: [목차](Proposal.md) · 기획: [컨셉](Concept.md) · [시스템](System.md) · [전투·개체](Combat_Entity.md) · [레벨 디자인](LevelDesign.md) · [밸런스](Balance.md) · 사업·운영: [사업 검토](Business.md) · [요구사항·로드맵](Requirements.md) · **Business Model** · [서버·데이터](Server_Data.md) · [리소스](Resources.md) · [로그·지표](Analytics.md) · [QA·출시](QA_Release.md) · [라이브 운영](LiveOps.md) · [사업화·법무](Business_Legal.md) · [needFix](needFix.md)
+> 문서 세트: [목차](../Proposal.md) · 기획: [컨셉](Concept.md) · [시스템](System.md) · [전투·개체](Combat_Entity.md) · [레벨 디자인](LevelDesign.md) · [밸런스](Balance.md) · 사업·운영: [사업 검토](../대표/Business.md) · [요구사항·로드맵](Requirements.md) · **Business Model** · [서버·데이터](../개발/Server_Data.md) · [리소스](../디자인/Resources.md) · [로그·지표](Analytics.md) · [QA·출시](../QA/QA_Release.md) · [라이브 운영](../운영/LiveOps.md) · [사업화·법무](../대표/Business_Legal.md) · [needFix](../needFix.md)
 
-> **문서 정보** · 문서 번호 `D07-BM` · 버전 v1.0 · 상태 `Draft` · 담당 기획자 · 대표 · 최종 수정 2026-11-21 · 관련 문서 [밸런스](Balance.md) · [서버·데이터](Server_Data.md)
+> **문서 정보** · 문서 번호 `D07-BM` · 버전 v1.0 · 상태 `Draft` · 담당 기획자 · 대표 · 최종 수정 2026-11-21 · 관련 문서 [밸런스](Balance.md) · [서버·데이터](../개발/Server_Data.md)
 
 **변경 이력**
 
@@ -14,13 +14,13 @@
 
 ## 1. 목적
 **어떻게 돈을 벌고, 코인이 어떻게 도는지** 정하는 문서예요.
-> 지금 구현: 토스 광고 매니저 `AM`이 있지만 **부르는 곳이 없어** 광고가 나오지 않아요 (needFix [S-01](needFix.md)). 코인은 점수 · 레벨업에만 쓰여요.
+> 지금 구현: 토스 광고 매니저 `AM`이 있지만 **부르는 곳이 없어** 광고가 나오지 않아요 (needFix [S-01](../needFix.md)). 코인은 점수 · 레벨업에만 쓰여요.
 
 ## 2. Business Model 구조
 | 항목 | 결정 | 이유 |
 |---|---|---|
 | 주 수익원 | **광고** (전면 · 배너 · 보상형) | 30 ~ 45초 판 · 잦은 재시작 = 광고 지면이 많음, 타깃이 광고형 무료 게임 이용자 |
-| 인앱결제 | 1차 출시엔 없음 | 1인 개발 · 서버 없음. 스킨 상점([S-11](needFix.md))은 보류 |
+| 인앱결제 | 1차 출시엔 없음 | 1인 개발 · 서버 없음. 스킨 상점([S-11](../needFix.md))은 보류 |
 | 넣지 않는 것 | 가챠 · 랜덤 박스 | 확률 공개 의무 · 운영 부담 |
 
 ## 3. 재화 순환 — 코인

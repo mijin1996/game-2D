@@ -18,11 +18,11 @@
 ## 2. 용어
 | 용어 | 뜻 | 코드 · 데이터 이름 | 관련 문서 |
 |---|---|---|---|
-| 러너 (토끼) | 플레이어가 조작하는 토끼 후드 캐릭터 (x 고정) | `Player` | [전투·개체](Combat_Entity.md) §2 |
-| 세상 흐름 | 토끼 대신 배경 · 발판이 왼쪽으로 10 m/s 흐름 | `ScrollingObject` | [전투·개체](Combat_Entity.md) §2 |
-| 발판 | 토끼가 밟고 건너는 땅 | `Platform` · `PlatformSpawner` | [레벨 디자인](LevelDesign.md) |
-| 짧은 점프 | 버튼을 일찍 떼면 위 속도가 절반이 되는 낮은 점프 | `Player.Update` | [전투·개체](Combat_Entity.md) §2 |
-| 점프 횟수 | 착지 전까지 할 수 있는 점프 수 (최대 5회) | `jumpCnt` | [전투·개체](Combat_Entity.md) §2 |
-| 사망 | 'Dead' 태그에 닿으면 끝나는 판 | `OnTriggerEnter2D` | [시스템](System.md) |
-| 코인 | 달리며 먹는 점수 아이템 (판마다 0부터) | — | [시스템](System.md) |
-| 당근 · 달팽이 | 던지는 공격(당근)과 그 공격으로 물리치는 적(달팽이) | — | [전투·개체](Combat_Entity.md) |
+| 러너 (토끼) | 플레이어가 조작하는 토끼 후드 캐릭터 (x 고정) | `Player` | [전투·개체](기획/Combat_Entity.md) §2 |
+| 세상 흐름 | 토끼 대신 배경 · 발판이 왼쪽으로 10 m/s 흐름 | `ScrollingObject` | [전투·개체](기획/Combat_Entity.md) §2 |
+| 발판 | 토끼가 밟고 건너는 땅 | `Platform` · `PlatformSpawner` | [레벨 디자인](기획/LevelDesign.md) |
+| 짧은 점프 | 버튼을 일찍 떼면 위 속도가 절반이 되는 낮은 점프 | `Player.Update` | [전투·개체](기획/Combat_Entity.md) §2 |
+| 점프 횟수 | 착지 전까지 할 수 있는 점프 수 (최대 5회) | `jumpCnt` | [전투·개체](기획/Combat_Entity.md) §2 |
+| 사망 | 'Dead' 태그에 닿으면 끝나는 판 | `OnTriggerEnter2D` | [시스템](기획/System.md) |
+| 코인 | 달리며 먹는 점수 아이템 (판마다 0부터) | — | [시스템](기획/System.md) |
+| 당근 · 달팽이 | 던지는 공격(당근)과 그 공격으로 물리치는 적(달팽이) | — | [전투·개체](기획/Combat_Entity.md) |

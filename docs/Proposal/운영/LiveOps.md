@@ -1,8 +1,8 @@
 # 라이브 운영 — BunnyRunning
 
-> 문서 세트: [목차](Proposal.md) · 기획: [컨셉](Concept.md) · [시스템](System.md) · [전투·개체](Combat_Entity.md) · [레벨 디자인](LevelDesign.md) · [밸런스](Balance.md) · 사업·운영: [사업 검토](Business.md) · [요구사항·로드맵](Requirements.md) · [Business Model](Monetization.md) · [서버·데이터](Server_Data.md) · [리소스](Resources.md) · [로그·지표](Analytics.md) · [QA·출시](QA_Release.md) · **라이브 운영** · [사업화·법무](Business_Legal.md) · [needFix](needFix.md)
+> 문서 세트: [목차](../Proposal.md) · 기획: [컨셉](../기획/Concept.md) · [시스템](../기획/System.md) · [전투·개체](../기획/Combat_Entity.md) · [레벨 디자인](../기획/LevelDesign.md) · [밸런스](../기획/Balance.md) · 사업·운영: [사업 검토](../대표/Business.md) · [요구사항·로드맵](../기획/Requirements.md) · [Business Model](../기획/Monetization.md) · [서버·데이터](../개발/Server_Data.md) · [리소스](../디자인/Resources.md) · [로그·지표](../기획/Analytics.md) · [QA·출시](../QA/QA_Release.md) · **라이브 운영** · [사업화·법무](../대표/Business_Legal.md) · [needFix](../needFix.md)
 
-> **문서 정보** · 문서 번호 `D12-LIVE` · 버전 v1.0 · 상태 `Draft` · 담당 운영 담당 · 최종 수정 2026-11-21 · 관련 문서 [로그·지표](Analytics.md)
+> **문서 정보** · 문서 번호 `D12-LIVE` · 버전 v1.0 · 상태 `Draft` · 담당 운영 담당 · 최종 수정 2026-11-21 · 관련 문서 [로그·지표](../기획/Analytics.md)
 
 **변경 이력**
 
@@ -20,7 +20,7 @@
 |---|---|---|
 | 핫픽스 | 필요할 때 | 크래시 · 광고 오류 |
 | 패치 | 2주 | 발판 · 달팽이 배치, 광고 빈도 |
-| 콘텐츠 | 출시 후 지표 보고 | 출석 · 일일 미션 ([REQ_112](Requirements.md)) → 몬스터 1종 → 스킨 |
+| 콘텐츠 | 출시 후 지표 보고 | 출석 · 일일 미션 ([REQ_112](../기획/Requirements.md)) → 몬스터 1종 → 스킨 |
 
 ## 3. 지표 리뷰 (매주)
 | 지표 | 이상 기준 | 대응 |
@@ -49,8 +49,8 @@
 | 문의 | 처리 | 기한 |
 |---|---|---|
 | 광고가 너무 많아요 | 빈도 규칙 안내, 지표와 함께 검토 | 확인 후 |
-| 기록이 사라졌어요 | 기기 저장 한계 안내 ([서버](Server_Data.md) §3) | 24시간 |
-| 버그 신고 | 기기 · 토스 앱 버전 · 재현 방법 → [QA](QA_Release.md) TC 추가 | 확인 후 |
+| 기록이 사라졌어요 | 기기 저장 한계 안내 ([서버](../개발/Server_Data.md) §3) | 24시간 |
+| 버그 신고 | 기기 · 토스 앱 버전 · 재현 방법 → [QA](../QA/QA_Release.md) TC 추가 | 확인 후 |
 
 ## 7. 장애 대응
 | 등급 | 예 | 대응 |
