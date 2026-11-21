@@ -59,7 +59,6 @@ flowchart LR
   classDef ui fill:#5A4A9E,color:#fff,stroke:#5A4A9E
   classDef data fill:#A33A33,color:#fff,stroke:#A33A33
 ```
-> 읽는 법: 상자 = 씬 · 스크립트 · 오브젝트, 화살표 위 글 = 보내는 신호나 하는 일이에요. ①②③은 일어나는 순서예요.
 
 ## 1. 화면 흐름
 빌드 씬: `0 Intro` → `1 Main` (`2 protocal`은 테스트 씬)
@@ -83,7 +82,6 @@ stateDiagram-v2
   class Main play
   class GameOver fail
 ```
-> 읽는 법: 상자 = 상태, 화살표 위 글 = 상태가 바뀌는 조건이에요. 검은 점에서 시작해요.
 
 **[와이어프레임] 플레이 화면 (기준 640 × 360)**
 ```
@@ -115,7 +113,6 @@ stateDiagram-v2
 | B | 공격 버튼 | 당근 던지기 | `AttackButton` · 455.4 ~ 525.4, 90 ~ 110 |
 | C | 점수 | 코인 점수 | `Score Text` · 194.9 ~ 443.1, 24 ~ 100.1 |
 | D | 게임오버 글자 (게임오버 때만 켜짐) | 게임오버 창 | `Gameover Text (1)` · 172.5 ~ 472.5, 193.2 ~ 242.2 |
-> 읽는 법: 테두리 = 화면 전체, 점선 상자 = 요소가 차지하는 영역, 글자 = 아래 표의 요소예요. 위치는 씬의 RectTransform 값으로 계산했어요 (화면 비율이 기준 해상도와 다르면 조금 달라져요).
 
 점프는 버튼이 없고 **화면 아무 곳이나 터치**해요 (누르는 시간 = 높이).
 
@@ -144,7 +141,6 @@ stateDiagram-v2
   class Grounded,Air play
   class Dead fail
 ```
-> 읽는 법: 상자 = 상태, 화살표 위 글 = 상태가 바뀌는 조건이에요. 검은 점에서 시작해요.
 
 ## 3. 작동 로직
 ### 3-1. 입력 (`PlayerInput`)
@@ -202,7 +198,6 @@ flowchart TD
   classDef io fill:#5A4A9E,color:#fff,stroke:#5A4A9E
   classDef endc fill:#6B7280,color:#fff,stroke:#6B7280
 ```
-> 읽는 법: 초록에서 시작해 화살표를 따라 내려가요. 주황 마름모에서 Y(예) / N(아니오)으로 갈라져요.
 
 > 세부 조건(코드 기준)은 [부록 A-2](#a-2-점프)에 있어요.
 
@@ -239,7 +234,6 @@ flowchart TD
   classDef io fill:#5A4A9E,color:#fff,stroke:#5A4A9E
   classDef endc fill:#6B7280,color:#fff,stroke:#6B7280
 ```
-> 읽는 법: 초록에서 시작해 화살표를 따라 내려가요. 주황 마름모에서 Y(예) / N(아니오)으로 갈라져요.
 
 ```
   B  >>>>>>>>>>>>>>>>>>>>>>>>  @     당근 속도 12, 맞으면 데미지 1 = 달팽이 사라짐
@@ -285,7 +279,6 @@ flowchart TD
   classDef io fill:#5A4A9E,color:#fff,stroke:#5A4A9E
   classDef endc fill:#6B7280,color:#fff,stroke:#6B7280
 ```
-> 읽는 법: 초록에서 시작해 화살표를 따라 내려가요. 주황 마름모에서 Y(예) / N(아니오)으로 갈라져요.
 
 **bag 방식 (섞인 주머니)**
 ```
@@ -333,7 +326,6 @@ flowchart TD
   classDef io fill:#5A4A9E,color:#fff,stroke:#5A4A9E
   classDef endc fill:#6B7280,color:#fff,stroke:#6B7280
 ```
-> 읽는 법: 초록에서 시작해 화살표를 따라 내려가요. 주황 마름모에서 Y(예) / N(아니오)으로 갈라져요.
 
 > 세부 조건(코드 기준)은 [부록 A-5](#a-5-코인--점수--레벨)에 있어요.
 
@@ -374,7 +366,6 @@ flowchart TD
   classDef io fill:#5A4A9E,color:#fff,stroke:#5A4A9E
   classDef endc fill:#6B7280,color:#fff,stroke:#6B7280
 ```
-> 읽는 법: 초록에서 시작해 화살표를 따라 내려가요. 주황 마름모에서 Y(예) / N(아니오)으로 갈라져요.
 
 > 세부 조건(코드 기준)은 [부록 A-6](#a-6-게임오버)에 있어요.
 
@@ -419,7 +410,6 @@ flowchart TD
   classDef io fill:#5A4A9E,color:#fff,stroke:#5A4A9E
   classDef endc fill:#6B7280,color:#fff,stroke:#6B7280
 ```
-> 읽는 법: 초록에서 시작해 화살표를 따라 내려가요. 주황 마름모에서 Y(예) / N(아니오)으로 갈라져요.
 
 > 세부 조건(코드 기준)은 [부록 A-7](#a-7-광고-am)에 있어요.
 
@@ -460,7 +450,6 @@ flowchart TB
   classDef bad fill:#A33A33,color:#fff,stroke:#A33A33
   classDef todo fill:#6B7280,color:#fff,stroke:#6B7280
 ```
-> 읽는 법: 주황 = 이런 상황이면? → 초록 ✅ 코드가 이미 처리함 / 빨강 ⚠️ 문제 (괄호 = needFix 번호) / 회색 💡 고치면 좋은 점. 아래 표에 같은 번호로 자세히 있어요.
 
 | # | 상황 | 현재 동작 | 상태 |
 |---|---|---|---|
