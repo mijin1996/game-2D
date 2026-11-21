@@ -1,14 +1,14 @@
 # 리소스 (아트 · 사운드) 명세 — BunnyRunning
 
-> 문서 세트: [목차](Proposal.md) · 기획: [컨셉](Concept.md) · [시스템](System.md) · [전투·개체](Combat_Entity.md) · [레벨 디자인](LevelDesign.md) · [밸런스](Balance.md) · 사업·운영: [사업 검토](Business.md) · [요구사항·로드맵](Requirements.md) · [BM·경제](Monetization.md) · [서버·데이터](Server_Data.md) · **리소스** · [로그·지표](Analytics.md) · [QA·출시](QA_Release.md) · [라이브 운영](LiveOps.md) · [사업화·법무](Business_Legal.md) · [needFix](needFix.md)
+> 문서 세트: [목차](Proposal.md) · 기획: [컨셉](Concept.md) · [시스템](System.md) · [전투·개체](Combat_Entity.md) · [레벨 디자인](LevelDesign.md) · [밸런스](Balance.md) · 사업·운영: [사업 검토](Business.md) · [요구사항·로드맵](Requirements.md) · [Business Model](Monetization.md) · [서버·데이터](Server_Data.md) · **리소스** · [로그·지표](Analytics.md) · [QA·출시](QA_Release.md) · [라이브 운영](LiveOps.md) · [사업화·법무](Business_Legal.md) · [needFix](needFix.md)
 
-> **문서 정보** · ID `D09-RES` · v1.0 · 상태 `Draft` · Owner ME (기획 · 개발) · 최종 수정 2026-11-21 · 관련 `D04-ENTITY`, `D13-LEGAL`
+> **문서 정보** · 문서 번호 `D09-RES` · 버전 v1.0 · 상태 `Draft` · 담당 아티스트 · 사운드 디자이너 · 최종 수정 2026-11-21 · 관련 문서 [전투·개체](Combat_Entity.md) · [사업화·법무](Business_Legal.md)
 
 **변경 이력**
 
 | 버전 | 날짜 | 변경 내용 | 사유 | 결정자 | 영향 범위 |
 |---|---|---|---|---|---|
-| v1.0 | 2026-11-21 | 최초 작성 | 사내 문서 기준 v3 적용 | ME | 문서만 |
+| v1.0 | 2026-11-21 | 최초 작성 | — | 아티스트 | — |
 
 ---
 
@@ -21,7 +21,7 @@
 **캐릭터 · 그림**
 | 리소스 ID | 파일 · 폴더 | 쓰는 곳 | 출처 | 라이선스 |
 |---|---|---|---|---|
-| `SPR_RUNNER` | `UniRun_Run_*` 스프라이트 · `img/Run.anim` · `Jump.anim` · `Die.anim` | 토끼 러너 | 유니티짱 계열 (`img/License/UCL2.0` 동봉) | 🔶 **UCL 2.0** — 상업 이용 가능하지만 **라이선스 표기 의무**가 있어요. 표기 위치(게임 · 스토어)를 원문 PDF로 확인 → [F-03](needFix.md#8-사내-문서-기준-v3-적용-후-정할-것) |
+| `SPR_RUNNER` | `UniRun_Run_*` 스프라이트 · `img/Run.anim` · `Jump.anim` · `Die.anim` | 토끼 러너 | 유니티짱 계열 (`img/License/UCL2.0` 동봉) | 🔶 **UCL 2.0** — 상업 이용 가능하지만 **라이선스 표기 의무**가 있어요. 표기 위치(게임 · 스토어)를 원문 PDF로 확인 → [F-03](needFix.md#8-정할-것) |
 | `SPR_SNAIL` | `img/SnailAni.anim` | 달팽이 | 미확인 | ⚠️ 확인 필요 |
 | `SPR_CARROT` | `img/Carrot_Pixel.png` | 당근 | 직접 제작 추정 | ⚠️ 직접 만든 것인지 기록 |
 | `UI_BTN_*` | `img/ButtonYellow.png` · `GreenButton.png` | 버튼 | 직접 제작 추정 | ⚠️ 기록 |
@@ -58,10 +58,10 @@
 ## 3. 새로 필요한 리소스
 | 리소스 ID | 종류 | 규격 | 관련 | 상태 |
 |---|---|---|---|---|
-| `UI_BEST` | SCORE / BEST 두 줄 게임오버 창 | 가로 화면 기준 | S-02 | 대기 |
-| `UI_CARROT_GAUGE` | 당근 버튼 쿨다운 게이지 | 버튼 위 원형 | S-03 | 대기 |
-| `UI_CONTINUE` | "광고 보고 이어하기" 버튼 | — | REQ_108 | 대기 |
-| `UI_LICENSE` | 라이선스 표기 화면 (UCL 로고 · 폰트 · 오픈소스) | — | F-03 | 대기 |
+| `UI_BEST` | SCORE / BEST 두 줄 게임오버 창 | 가로 화면 기준 | [S-02](needFix.md) | 대기 |
+| `UI_CARROT_GAUGE` | 당근 버튼 쿨다운 게이지 | 버튼 위 원형 | [S-03](needFix.md) | 대기 |
+| `UI_CONTINUE` | "광고 보고 이어하기" 버튼 | — | [REQ_108](Requirements.md) | 대기 |
+| `UI_LICENSE` | 라이선스 표기 화면 (UCL 로고 · 폰트 · 오픈소스) | — | [F-03](needFix.md) | 대기 |
 | `STORE_AIT_*` | 앱인토스 등록 이미지 | 콘솔 규격 | [QA · 출시](QA_Release.md) | 대기 |
 
 ## 4. 규칙
