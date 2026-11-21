@@ -40,7 +40,6 @@ flowchart LR
   classDef scene fill:#2F8F6B,color:#fff,stroke:#2F8F6B
   classDef script fill:#3AA6C8,color:#fff,stroke:#3AA6C8
 ```
-> 읽는 법: 왼쪽 초록 = 누르는 것 (📱 모바일 · ⌨️ PC) → 오른쪽 파랑 = 게임에서 일어나는 일이에요.
 
 ## 2. 러너 (토끼, `Player`)
 ```
@@ -59,7 +58,6 @@ xychart-beta
   y-axis "높이" 0 --> 4
   line [0, 2.0, 3.2, 3.6, 3.2, 2.0, 0]
 ```
-> 읽는 법: 왼쪽 → 오른쪽이 시간이에요. 0.6초에 가장 높은 3.6, 1.2초에 착지해요. 그동안 세상은 왼쪽으로 12 흘러가요.
 
 | 항목 | 값 | 근거 |
 |---|---|---|
@@ -118,7 +116,6 @@ stateDiagram-v2
   class Frozen stop
   class Dead fail
 ```
-> 읽는 법: 상자 = 상태, 화살표 위 글 = 상태가 바뀌는 조건이에요. 검은 점에서 시작해요.
 
 **[막대그래프] 속도 비교**
 ```mermaid
@@ -128,7 +125,6 @@ xychart-beta
   y-axis "속도" 0 --> 14
   bar [10, 12, 1]
 ```
-> 읽는 법: 단위는 초당 이동 거리예요. 세상 10 · 당근 12 · 달팽이 1.
 
 ## 5. 코인 (`Coin`)
 | 항목 | 값 |
@@ -151,7 +147,6 @@ flowchart LR
   classDef start fill:#2F8F6B,color:#fff,stroke:#2F8F6B
   classDef io fill:#5A4A9E,color:#fff,stroke:#5A4A9E
 ```
-> 읽는 법: 초록 = 이런 일이 생기면 → 보라 = ✨ 보이는 것 · 🔊 들리는 것이에요.
 
 | 대상 | 이펙트 | 사운드 |
 |---|---|---|
