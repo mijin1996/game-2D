@@ -48,7 +48,6 @@ flowchart LR
   classDef script fill:#3AA6C8,color:#fff,stroke:#3AA6C8
   classDef data fill:#A33A33,color:#fff,stroke:#A33A33
 ```
-> 읽는 법: 왼쪽 = 코인이 생기는 곳, 가운데 = 쌓이는 곳, 오른쪽 = 쓰는 곳이에요. 지금 코인은 판이 끝나면 남지 않아요. 남는 재화로 만들지는 [F-05](needFix.md#8-정할-것)에서 정해요.
 
 ## 4. 광고 지면
 | 지면 ID | 종류 | 위치 | 규칙 | 지금 |
@@ -72,7 +71,6 @@ gantt
   section 광고
   3번째 사망 전면 광고 :crit, milestone, d1, 120000, 0ms
 ```
-> 읽는 법: 막대 = 한 판(약 40초), 마름모 = 광고가 뜨는 순간이에요. 첫 2판은 광고 없이 지나가고 3번째 사망에 처음 떠요.
 
 ## 5. 광고 ID 관리
 | 환경 | 배너 | 전면 | 보상형 |
